@@ -62,8 +62,9 @@ const loginUser = expressAsyncHandler(async (req, res) => {
 // @route GET /api/users/me
 // @access Public
 const getMe = expressAsyncHandler(async (req, res) => {
-  const { _id, name, email } = await User.findById(req.user.id);
-  res.status(200).json({ id: _id, name, email });
+  // const { _id, name, email } = await User.findById(req.user.id);
+  // res.status(200).json({ id: _id, name, email });
+  res.status(200).json(req.user);
 });
 
 module.exports = { registerUser, loginUser, getMe };
