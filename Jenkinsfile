@@ -1,7 +1,7 @@
 pipeline {
     agent any     
     stages {
-        stage('run client') {
+        stage('client') {
             steps {
                 echo 'executing npm...'  
                 nodejs('Node-18.16') {
@@ -9,7 +9,7 @@ pipeline {
                 }       
             }
         }
-        stage('run backend') {   
+        stage('backend') {   
              steps {
                 echo 'executing gradle...'
                 withGradle(){
