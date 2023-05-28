@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('Logs') {
+      steps {
+        bat 'dir'
+      }
+    }
+
   }
 }
