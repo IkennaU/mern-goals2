@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('Logs') {
-      steps {
-        bat 'dir'
+      parallel {
+        stage('Logs') {
+          steps {
+            bat 'dir'
+          }
+        }
+
+        stage('Front End Run') {
+          steps {
+            bat 'cd client && npm i'
+          }
+        }
+
       }
     }
 
