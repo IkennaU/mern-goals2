@@ -26,7 +26,6 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -f client .'
         bat 'docker build -f client .'
       }
     }
