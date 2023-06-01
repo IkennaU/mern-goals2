@@ -17,16 +17,19 @@ pipeline {
 
         stage('Front End Run') {
           steps {
-            bat 'cd client && npm i'
+            echo 'executing npm...'
+            nodejs('Node-18.16') {
+              bat 'cd client && npm i'
+            }
           }
         }
 
       }
     }
 
-    stage('Build') {
+    stage('Run Backend') {
       steps {
-        bat 'docker build client .'
+        echo 'executing gradle'
       }
     }
 
